@@ -33,11 +33,15 @@ body {
         width: 0;
         overflow-x: hidden;
         transition: all 0.3s;
+        z-index: 2; /* Set a higher z-index for the sidebar */
+
     }
 
     #main-content {
         margin-left: 0;
         transition: all 0.3s;
+        z-index: 1; /* Set a lower z-index for the main content */
+
     }
 
     #sidebar.active {
