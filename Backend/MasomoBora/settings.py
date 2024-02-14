@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    #My apps
+    'rest_framework',
+    'usermanagement',
+    'academics',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'MasomoBora.urls'
@@ -75,11 +81,14 @@ WSGI_APPLICATION = 'MasomoBora.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MasomoBora',
+        'USER': 'root',
+        'PASSWORD': 'benjamin8393',
+        'HOST': 'localhost',  # Set to the address of your MySQL server
+        'PORT': '3306',       # Set to the port of your MySQL server
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -121,3 +130,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# project/settings.py
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+AUTH_USER_MODEL = 'usermanagement.CustomUser'
+# settings.py
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # or the origin of your frontend
+]
+
+# Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
+CORS_ALLOW_CREDENTIALS = True

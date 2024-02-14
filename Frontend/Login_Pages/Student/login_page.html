@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script src="../../auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="student.png" alt="student Image"></I>
+        <h3>Student Account</h3>
+        <form id="loginForm">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <a href="#">Forget Password</a>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get username and password from the form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Call loginUser function from auth.js
+            loginUser(username, password)
+                .then(tokenData => {
+                    // Handle the response (e.g., save tokens to localStorage, redirect to a different page)
+                    console.log('Login Successful:', tokenData);
+                })
+                .catch(error => {
+                    // Handle login error (e.g., display an error message)
+                    console.error('Login Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
