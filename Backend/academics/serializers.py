@@ -1,6 +1,6 @@
 # academics/serializers.py
 from rest_framework import serializers
-from .models import Program, Course, Examination, CAT, Note ,Question,Answer
+from .models import Program, Course, Examination, CAT, Note, Question, Answer, Grades
 
 class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,6 +26,7 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = '__all__'
+
 class QuestionSerializer(serializers.ModelSerializer):
     answers = serializers.SerializerMethodField()
 
@@ -40,4 +41,9 @@ class QuestionSerializer(serializers.ModelSerializer):
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
+        fields = '__all__'
+
+class GradesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Grades
         fields = '__all__'

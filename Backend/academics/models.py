@@ -62,6 +62,7 @@ class Note(models.Model):
 class Question(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     text = models.TextField()
+    marks = models.TextField(null=True, blank=True)
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
