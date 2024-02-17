@@ -1,0 +1,46 @@
+body{
+    background-image: url("academic_background.jpg");
+    background-repeat: no-repeat;
+    width : auto;
+    color: whitesmoke;
+    overflow: hidden;
+
+}
+img{
+    width: 150px;
+    height: auto;
+}
+
+h3{
+    color: whitesmoke;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 17pt;
+}
+.container{
+    margin-top: 58pt;
+    margin-left: 42%;
+   color: whitesmoke;
+   width: 200%;
+  
+  
+}
+
+#lecture_login, #lb_lecture{
+    margin-top: 18pt;
+}
+
+.text_content{
+    width: 75%;
+    margin: auto;
+}
+
+input[type = "submit"]{
+        margin-top: 15pt;
+        width: 135pt;
+        background-color: #4CAF50;
+        color: white;
+}
+input[type="submit"]:hover {
+    background-color:purple;
+}
