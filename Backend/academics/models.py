@@ -1,3 +1,4 @@
+# academics/models.py
 from django.db import models
 from usermanagement.models import CustomUser
 
@@ -36,20 +37,30 @@ class Note(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(blank=True, null=True)
     file = models.FileField(blank=True, null=True, upload_to='notes/')
+
 class Assessment(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date = models.DateField()
     description = models.TextField()
     marks = models.IntegerField(default=0)
 
-    class Meta:
-        abstract = True
+
 
 class CAT(Assessment):
     contribution_percentage = 30
 
 class Examination(Assessment):
     contribution_percentage = 70
+
+class Question(models.Model):
+    assessment = models.ForeignKey(Assessment, on_delete=models.CASCADE)
+    text = models.TextField()
+    marks = models.IntegerField(null=True, blank=True)
+
+class Answer(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
+    is_correct = models.BooleanField(default=False)
 
 class Grades(models.Model):
     student = models.ForeignKey(
@@ -84,13 +95,3 @@ class Grades(models.Model):
     def save(self, *args, **kwargs):
         self.grade = self.assign_grade()
         super().save(*args, **kwargs)
-
-class Question(models.Model):
-    assessment = models.ForeignKey(Assessment, on_delete=models.CASCADE)
-    text = models.TextField()
-    marks = models.IntegerField(null=True, blank=True)
-
-class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    text = models.CharField(max_length=255)
-    is_correct = models.BooleanField(default=False)
