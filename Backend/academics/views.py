@@ -7,17 +7,17 @@ from .permissions import IsStudent, IsTeacher, IsAdmin
 class ProgramListCreateView(generics.ListCreateAPIView):
     queryset = Program.objects.all()
     serializer_class = ProgramSerializer
-    permission_classes = [IsAdmin]  # Only admin can create/list programs
+    # permission_classes = [IsAdmin]  # Only admin can create/list programs
 
 class CourseListCreateView(generics.ListCreateAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [IsTeacher]  # Only teachers can create/list courses
+    # permission_classes = [IsTeacher]  # Only teachers can create/list courses
 
 class ExaminationListCreateView(generics.ListCreateAPIView):
     queryset = Examination.objects.all()
     serializer_class = ExaminationSerializer
-    permission_classes = [IsTeacher]  # Only teachers can create/list examinations
+    # permission_classes = [IsTeacher]  # Only teachers can create/list examinations
 
 class CATListCreateView(generics.ListCreateAPIView):
     queryset = CAT.objects.all()
@@ -42,4 +42,4 @@ class AnswerListCreateView(generics.ListCreateAPIView):
 class GradesListCreateView(generics.ListCreateAPIView):
     queryset = Grades.objects.all()
     serializer_class = GradesSerializer
-    permission_classes = [IsStudent]  # Only students can create/list grades
+    # permission_classes = [IsStudent]  # Only students can create/list grades
