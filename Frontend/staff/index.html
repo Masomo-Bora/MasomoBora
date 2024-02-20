@@ -26,10 +26,10 @@
     <header class="bg-dark text-white py-3">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-<<<<<<< Updated upstream
           <!-- Add a button to toggle the sidebar -->
           <button class="btn btn-dark" id="sidebarToggle"><i class="fas fa-bars"></i></button>
           <h1 class="h4 mb-0">Masomo Bora</h1>
+          
           <nav>
             <ul class="nav">
               <li class="nav-item">
@@ -72,47 +72,30 @@
               <!-- Add sidebar items for different sections -->
               <li class="nav-item container mb-2 mt-2 ">
                 <div class=" border-1 p-2 m-auto " id="user">
-                  <i class="fas fa-user-circle"></i> Welcome Student
+                  <i class="fas fa-user-circle"></i> Welcome Admin
                 </div>
               </li>
               <li class="nav-item">
-<<<<<<< Updated upstream
                 <a class="nav-link active" id="dashboard" href="dashboard">
-=======
-                <a class="nav-link active" href="dashboard.html">
->>>>>>> Stashed changes
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-<<<<<<< Updated upstream
-                <a class="nav-link active" id="academics" href="academics">
-=======
-                <a class="nav-link active" href="academics.html">
->>>>>>> Stashed changes
-                  Academics
+                <a class="nav-link active" id="academics" href="manageProfile">
+                  Manage Profile
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" id="courses" href="courses">
-                  Courses/Subjects:
+                <a class="nav-link active" id="courses" href="managePrograms">
+                  Manage Programs
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" id="grades" href="grades">
-                  Grades/Results:
+                <a class="nav-link active" id="grades" href="manageUsers">
+                  Manage Users
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" id="assignments" href="assignments">
-                  Assignments
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" id="financials" href="financials">
-                  Financials
-                </a>
-              </li>
+              
               <!-- Add more sidebar items as needed -->
             </ul>
           </div>
@@ -149,7 +132,7 @@
     <script>
       // Function to load content from separate HTML file
       function loadContent(pageName) {
-          $('#main-content').load('students/'+ pageName + '.html', function (response, status, xhr) {
+          $('#main-content').load(pageName + '.html', function (response, status, xhr) {
               if (status === "error") {
                   console.error("Error loading content:", xhr.status, xhr.statusText);
               }
