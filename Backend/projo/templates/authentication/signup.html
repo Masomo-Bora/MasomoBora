@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 2px;
+            margin-bottom: 4px;
+            
+        }
+
+        #signup-form {
+            background-color: green;
+            padding: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            width: fit-content;
+            padding-bottom: 2px;
+            margin-top: 10px
+
+        }
+            
+        
+        
+
+        label {
+            display: block;
+            margin-bottom: 2px;
+            text-color: blue;
+        }
+
+        input {
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 2px;
+            box-sizing: border-box;
+            background: light gray;
+        }
+
+        button {
+            background-color: #bd2a2a;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        .sign{
+            color: black;
+            font-size: 20px;
+            margin-top: 8px;
+            margin-right: 2px;
+            
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        #container{
+            padding: 10px;
+            margin-bottom: 80px;
+        }
+    </style>
+
+</head>
+<body>
+
+    
+     <div id="signup-form">
+        
+        <h3 class="sign">SIGN UP TO CREATE ACOUNT</h3>
+
+    <form action="/signup" method="post">
+        {% csrf_token %}
+        <div id ="container">
+        <label for="Username" style="color: white">Username: </label><br>
+        <input type="text" id="username" name="username" Required><br><br>
+        
+        <label for="FirstName" style="color: white">FirstName: </label><br>
+        <input type="text" id="firstname" name="firstname"  Required><br><br>
+
+        <label for="LastName" style="color: white">LastName: </label><br>
+        <input type="text" id="lastname" name="lastname" Required><br><br>
+
+        <label for="EmailAddress" style="color: white">EmailAddress: </label><br>
+        <input type="email" id="email" name="email" Required><br><br>
+
+        <label for="Password" style="color: white">Password: </label><br>
+        <input type="password" id="pass1" name="pass1" Required><br><br>
+
+        <label for="Confirm Password" style="color: white">Confirm Password: </label><br>
+        <input type="password" id="pass2" name="pass2"><br><br>
+
+        <button type="submit">Sign Up</button>
+        </div>
+
+
+    
+    
+</body>
+</html>

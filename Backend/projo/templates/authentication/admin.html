@@ -1,0 +1,14 @@
+{% extends 'home' %}
+
+{% block content %}
+  <h2>Login</h2>
+  <form method="post" action="{% url 'admin' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label for="Username" style="color: white">Username: </label><br>
+        <input type="text" id="username" name="username" Required><br><br>
+        
+        <label for="password" style="color: white">Password: </label><br>
+        <input type="password" id="pass1" name="pass1"  Required><br><br>
+  </form>
+{% endblock %}
