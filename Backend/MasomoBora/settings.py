@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-74lymx+7q54enn&**43nsk#(uha!bxe44^x5@*__b_n3(^v@yd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['radically-happy-giraffe.ngrok-free.app','127.0.0.1']
 
 
 # Application definition
@@ -139,9 +140,30 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = 'usermanagement.CustomUser'
 # settings.py
 
+# Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
+    "https://radically-happy-giraffe.ngrok-free.app",
     "http://127.0.0.1:5500",  # or the origin of your frontend
 ]
 
-# Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
-CORS_ALLOW_CREDENTIALS = True
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # You can adjust the directory as needed
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(LOGGING_DIR, 'django.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

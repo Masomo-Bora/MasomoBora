@@ -6,10 +6,10 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MASOMO BORA</title>
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -29,6 +29,7 @@
           <!-- Add a button to toggle the sidebar -->
           <button class="btn btn-dark" id="sidebarToggle"><i class="fas fa-bars"></i></button>
           <h1 class="h4 mb-0">Masomo Bora</h1>
+          
           <nav>
             <ul class="nav">
               <li class="nav-item">
@@ -71,43 +72,30 @@
               <!-- Add sidebar items for different sections -->
               <li class="nav-item container mb-2 mt-2 ">
                 <div class=" border-1 p-2 m-auto " id="user">
-                  <i class="fas fa-user-circle"></i> Welcome Student
+                  <i class="fas fa-user-circle"></i> Welcome Admin
                 </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" id="dashboard" href="dashboard">
-
-                <a class="nav-link active" href="dashboard.html">
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" id="academics" href="academics">
-
-                <a class="nav-link active" href="academics.html">
-                  Academics
+                <a class="nav-link active" id="academics" href="manageProfile">
+                  Manage Profile
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" id="courses" href="courses">
-                  Courses/Subjects:
+                <a class="nav-link active" id="courses" href="managePrograms">
+                  Manage Programs
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" id="grades" href="grades">
-                  Grades/Results:
+                <a class="nav-link active" id="grades" href="manageUsers">
+                  Manage Users
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" id="assignments" href="assignments">
-                  Assignments
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" id="financials" href="financials">
-                  Financials
-                </a>
-              </li>
+              
               <!-- Add more sidebar items as needed -->
             </ul>
           </div>
@@ -144,7 +132,7 @@
     <script>
       // Function to load content from separate HTML file
       function loadContent(pageName) {
-          $('#main-content').load('students/'+ pageName + '.html', function (response, status, xhr) {
+          $('#main-content').load(pageName + '.html', function (response, status, xhr) {
               if (status === "error") {
                   console.error("Error loading content:", xhr.status, xhr.statusText);
               }
