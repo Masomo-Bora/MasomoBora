@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    {%load static%}
+    <style>
+        
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-image: url("{% static 'images/background.png' %}")
+                background-repeat: no-repeat;
+                background-size: cover;
+               
+            }
+    
+            #login-form,
+            #signup-form {
+                background-color: #fff;
+                padding: 60px;
+                background: gray;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+    
+            #signup-form {
+                display: none;
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+    
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 16px;
+                box-sizing: border-box;
+            }
+    
+            button {
+                background-color: #bd2a2a;
+                color: #fff;
+                padding: 10px;
+                margin-bottom: 10px;
+                align-items: center;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column; /* Set the flex direction to column */
+                align-items: center;
+                box-sizing: border-box;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+    
+            .switch-form {
+                text-align: center;
+                margin-top: 16px;
+            }
+            img{
+                background-size: cover; 
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+    
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .container{
+                background-color: #fff;
+                padding: 20px;
+                background: gray;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+    </style>
+</head>
+
+<body>
+    <h3>ADMIN SIGNIN</h3>
+
+    <div class="container">
+    
+    <form action="/signin" method="post">
+        {% csrf_token %}
+        <label for="Username" style="color: white">Username: </label><br>
+        <input type="text" id="username" name="username" Required><br><br>
+        
+        
+
+        <label for="Password" style="color: white">Password: </label><br>
+        <input type="password" id="pass1" name="pass1" Required><br><br>
+
+        
+
+        <button type="submit">Sign In</button>
+
+
+    
+    
+</body>
+</html>

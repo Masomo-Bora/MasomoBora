@@ -1,80 +1,161 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
-
+    <title>Index</title>
     <style>
-        .veri{
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-top: 40px;
-        }
-        
-        #container {
-            display: flex;
             justify-content: center;
-            align-items: center;
-            margin-left: 4px;
+            height: 100vh;
+            background-image: url("{% static 'images/background.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+           
         }
-        button {
-            background-color: #4caf50;
-            color: #ffffff;
+
+        #login-form,
+        #signup-form {
+            background-color: #fff;
+            padding: 20px;
+            background: gray;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #signup-form {
+            display: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
             padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #bd2a2a;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            align-items: center;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-        .button-container button:first-child {
-            margin-bottom: 10px;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Set the flex direction to column */
             align-items: center;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            box-sizing: border-box;
         }
 
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 16px;
+        }
+        img{
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 
-    {% for message in messages %}
-    
-    <div class ="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <strong>Message:</strong> {{message}}
-        {% comment %} <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button> {% endcomment %}
-    </div>  
-        
-    {% endfor %}
-     
-    <h3 class="veri">Welcome to Account Verification</h3>
-    <h4 class="veri">Teacher Login Section</h4>
-
+    <!-- Your index page content -->
+    {% comment %} <img src="{% static 'images/background.png' %}" alt="Your Image"> {% endcomment %}
     
 
-    {% if user.is_authenticated %}
-        <!-- The user is authenticated -->
-        <p>Hello {{ firstname }}! You are currently logged in.</p>
-        <button type="submit"> <a href="/signout"> SignOut</a></button>
-        
-    {%else%}
-    <div class="button-container">
-        <p style="color: blue">If Account already exists:</p>
-    <button type="submit"> <a href="/signin"> SignIn</a></button>
-        <p style="color: blue">To Create an account: </p>
-    <button type="submit"> <a href="/signup"> SignUp</a></button>
-    
-    <button type="submit"> <a href ="/admin">Admin</button>
-    
+    <div id="buttons-container">
+        <button onclick="showLoginForm()">Admin Section</button>
+        <button onclick="showSignupForm()">Teacher Section</button>
     </div>
-    {% endif %}
+
+    <div id="forms-container">
+        <!-- JavaScript will dynamically load the forms here -->
+    </div>
+
+    <script>
+        function showLoginForm() {
+            document.getElementById('buttons-container').style.display = 'none';
+            document.getElementById('forms-container').innerHTML = `{% include 'authentication/admilogin.html' %}`;
+        }
+
+        function showSignupForm() {
+            document.getElementById('buttons-container').style.display = 'none';
+            document.getElementById('forms-container').innerHTML = `{% include 'authentication/signup.html' %}`;
+        }
+
+        function toggleForm(formId) {
+            var loginForm = document.getElementById('login-form');
+            var signupForm = document.getElementById('signup-form');
+    
+            if (formId === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else if (formId === 'signup') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+    
+        document.getElementById('login').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            // Perform login logic here
+            console.log('Logging in with:', username, password);
+        });
+    
+        document.getElementById('signup').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var newUsername = document.getElementById('newUsername').value;
+            var email = document.getElementById('email').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+    
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+    
+            // Perform signup logic here
+            console.log('Signing up with:', newUsername, email, newPassword);
+        });
+        
+            function loginAsAdmin() {
+                // Add logic to redirect or handle admin login
+                console.log('Initiating login as admin');
+                // Example: Redirect to admin login page
+                window.location.href = "/admilogin";
+            }
+    </script>
+
 </body>
 </html>
