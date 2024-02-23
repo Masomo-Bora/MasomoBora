@@ -1,6 +1,15 @@
 # academics/urls.py
 from django.urls import path
-from .views import ProgramListCreateView, CourseListCreateView, ExaminationListCreateView, CATListCreateView, NoteListCreateView,QuestionListCreateView,AnswerListCreateView
+from .views import (
+    ProgramListCreateView,
+    CourseListCreateView,
+    ExaminationListCreateView,
+    CATListCreateView,
+    NoteListCreateView,
+    QuestionListCreateView,
+    AnswerListCreateView,
+    GradesListCreateView,
+)
 
 urlpatterns = [
     path('programs/', ProgramListCreateView.as_view(), name='program-list-create'),
@@ -10,4 +19,5 @@ urlpatterns = [
     path('notes/', NoteListCreateView.as_view(), name='note-list-create'),
     path('questions/', QuestionListCreateView.as_view(), name='question-list-create'),
     path('answers/', AnswerListCreateView.as_view(), name='answer-list-create'),
+    path('grades/', GradesListCreateView.as_view(), name='grades-list-create'),
 ]

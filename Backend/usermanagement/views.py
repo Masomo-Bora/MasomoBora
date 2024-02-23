@@ -10,6 +10,8 @@ from django.utils.decorators import method_decorator
 from .models import CustomUser
 from .serializers import CustomUserSerializer
 import logging
+from django.contrib.auth.hashers import make_password
+
 
 logger = logging.getLogger(__name__)
 
@@ -28,6 +30,24 @@ class UserList(generics.ListCreateAPIView):
         return super().get_permissions()
 
     def create(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        password = request.data.get('password', None)  # Set password to None if not provided
+
+        if not email:
+            return Response({"detail": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        if not password:
+            # Set the password to the username if it is not provided
+            username = request.data.get('username')
+            if username:
+                password = username
+            else:
+                return Response({"detail": "Username is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+        hashed_password = make_password(password)
+        request.data['password'] = hashed_password
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
@@ -37,7 +57,10 @@ class UserList(generics.ListCreateAPIView):
 
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-
+class AllUserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    permission_classes = [IsAuthenticated]
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
