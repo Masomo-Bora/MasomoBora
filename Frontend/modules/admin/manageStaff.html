@@ -1,0 +1,43 @@
+<!-- manageUsers.html -->
+
+<div class="container-fluid">
+    <h1>Manage Users</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>
+                            <h5 class="card-title">Staff List</h5>
+                            <p class="card-text">View and manage all Staff...</p>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa-plus" ></i>
+                                Add Staff
+                                </button>
+                            
+                        </div>
+                    </div>
+                    <!-- User Table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>User Type</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staffTableBody">
+                            <!-- User data will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
