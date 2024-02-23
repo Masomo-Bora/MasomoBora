@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login Page</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../Assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../Assets/favicon_io/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="login.css">
-    <script src="../../auth.js"></script>
+    <script type="module" src="../auth.js" ></script>
 </head>
 <body>
     <div class="container">
@@ -19,25 +24,5 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get username and password from the form
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Call loginUser function from auth.js
-            loginUser(username, password)
-                .then(tokenData => {
-                    // Handle the response (e.g., save tokens to localStorage, redirect to a different page)
-                    console.log('Login Successful:', tokenData);
-                })
-                .catch(error => {
-                    // Handle login error (e.g., display an error message)
-                    console.error('Login Error:', error);
-                });
-        });
-    </script>
 </body>
 </html>
