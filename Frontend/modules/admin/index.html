@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MASOMO BORA</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+      href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+      href="../favicon_io/favicon-16x16.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="../res/common.js"></script>
+  </head>
+  <body class>
+
+    <!-- Header with Navigation Bar -->
+    <header class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Add a button to toggle the sidebar -->
+          <button class="btn btn-dark" id="sidebarToggle"><i
+              class="fas fa-bars"></i></button>
+          <h1 class="h4 mb-0">Masomo Bora</h1>
+
+          <nav>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="../../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <!-- Add more navigation items as needed -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Settings
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Preferences</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Help</a></li>
+                  # </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  id="logout">Logout</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-4 mt-3 text-center">
+                <div class="border p-3 rounded-circle" id="user">
+                  <i class="fas fa-user-circle fa-2x text-primary"></i>
+                  <p class="mt-2 text-primary" id="welcomeMessage">Welcome
+                    Admin</p>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" id="dashboard" href="dashboard">
+                  <i class="fas fa-tachometer-alt mr-2 p-3"></i> Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="academics" href="manageProfile">
+                  <i class="fas fa-user mr-2 p-3"></i> Manage Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="courses" href="managePrograms">
+                  <i class="fas fa-book mr-2 p-3"></i> Manage Programs
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="manageStaff" href="manageStaff">
+                  <i class="fas fa-users mr-2 p-3"></i> Manage Staff
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="manageStudents" href="manageStudents">
+                  <i class="fas fa-users mr-2 p-3"></i> Manage Students
+                </a>
+              </li>
+              <!-- Add more sidebar items as needed -->
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Page Content -->
+        <main id="main-content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <!-- Content will be dynamically loaded here -->
+          <tbody id="studentTableBody">
+            <!-- User data will be dynamically inserted here -->
+        </tbody>
+        </main>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/fontawesome.min.js"
+      integrity="sha512-C8qHv0HOaf4yoA7ISuuCTrsPX8qjolYTZyoFRKNA9dFKnxgzIHnYTOJhXQIt6zwpIFzCrRzUBuVgtC4e5K1nhA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/cjs/popper.min.js"
+      integrity="sha512-m4yAwVbwlVl0M8YA4PJz5sY4oDQHq3PhXUY3DmkFgNL/FzdNjFDtR0S27nce8ij9uPb0zWMGxxaBVQViKuvqJg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script>
+      // Function to load content from separate HTML file
+      function loadContent(pageName) {
+          $('#main-content').load(pageName + '.html', function (response, status, xhr) {
+              if (status === "error") {
+                  console.error("Error loading content:", xhr.status, xhr.statusText);
+              }
+          });
+      }
+  
+      // Event listener for sidebar navigation clicks
+      $('#sidebar').on('click', '.nav-link',async function (e) {
+          e.preventDefault();
+          var pageName = $(this).attr('href');
+          await loadContent(pageName);
+  
+          // Collapse the sidebar for small screens after clicking a link
+          if ($(window).width() < 768) {
+              $('#sidebar').toggleClass('active');
+          }
+      });
+  
+      // Toggle sidebar when the button is clicked
+      $('#sidebarToggle').on('click', function () {
+          $('#sidebar').toggleClass('active');
+      });
+  
+      // Initial load of default page (Dashboard)
+      $(document).ready( async function () {
+         await loadContent('dashboard');
+      });
+  </script>
+  </body>
+</html>
