@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-74lymx+7q54enn&**43nsk#(uha!bxe44^x5@*__b_n3(^v@yd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radically-happy-giraffe.ngrok-free.app','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'rest_framework_simplejwt.token_blacklist',
     #My apps
     'rest_framework',
     'usermanagement',
@@ -142,10 +143,9 @@ AUTH_USER_MODEL = 'usermanagement.CustomUser'
 
 # Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    "https://radically-happy-giraffe.ngrok-free.app",
-    "http://127.0.0.1:5500",  # or the origin of your frontend
-]
+CORS_ALLOWED_ORIGINS = ['http://localhost']
+CORS_ALLOW_HEADERS = ['*']  # Allow all headers during development
+
 
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # You can adjust the directory as needed
 
