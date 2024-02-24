@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('images/background.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+        }
+
+        
+        #signup {
+            background-color: #fff;
+            padding: 20px;
+            background: gray;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #login{
+            background-color: #fff;
+            padding: 20px;
+            background: gray;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 8px;
+        }
+
+        #signup-form {
+            display: none;
+        }
+
+        #signup input{
+            width: 80%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 1px;
+            box-sizing: border-box;
+        }
+
+       #login input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 12px;
+            margin-bottom: 2px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #bd2a2a;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column; /* Set the flex direction to column */
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        #login button{
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 16px;
+        }
+        img{
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            background-color: grey;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 60vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    
+
+    <div id="forms-container">
+        <!-- This container will be dynamically updated with the login, signup, or signin forms -->
+    </div>
+
+    <script>
+        // Function to toggle between login, signup, and signin forms
+        function toggleForm(formType) {
+            const formsContainer = document.getElementById('forms-container');
+            
+            if (formType === 'login') {
+                formsContainer.innerHTML = `
+                    <h2>TEACHER LOGIN</h2>
+                    <form id="login">
+                        <!-- Login form fields go here -->
+                        <input type="text" placeholder="Username" required>
+                        <input type="password" placeholder="Password" required>
+                        <button type="submit">Login</button>
+                        <p> Don't have an Account:</p>
+                        <button onclick="toggleForm('signup')">Sign Up</button>
+                        
+                    </form>
+                `;
+            } else if (formType === 'signup') {
+                formsContainer.innerHTML = `
+                    <h2>TEACHER SIGNUP</h2>
+                    <form id="signup">
+                        <!-- Signup form fields go here -->
+                        <input type="text" placeholder="Username" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Confirm Password" required>
+                        <button type="submit">Sign Up</button>
+                        <p> Already have an account:</p>
+                        <button onclick="toggleForm('login')">Log In</button>
+                    </form>
+                `;
+            } 
+        }
+        
+
+        // Initial load: Show the login form
+        toggleForm('login');
+
+        </script>
+    
+</body>
+</html>
+

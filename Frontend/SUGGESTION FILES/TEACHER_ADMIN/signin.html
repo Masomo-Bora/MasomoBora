@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url('images/background.png' );
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    form {
+        background-color: grey;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 60vh;
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 3px;
+        margin-top: 16px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 6px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #bd2a2a;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    <div class="container">
+    <h3>ADMIN SIGNIN</h3>
+
+    <form action="/signin" method="post">
+        
+        <label for="Username" style="color: white">Username: </label><br>
+        <input type="text" id="username" name="username" Required><br><br>
+        
+        
+
+        <label for="Password" style="color: white">Password: </label><br>
+        <input type="password" id="pass1" name="pass1" Required><br><br>
+
+        
+
+        <button type="submit">Sign In</button>
+
+
+    
+    
+</body>
+</html>
