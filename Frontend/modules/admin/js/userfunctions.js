@@ -143,4 +143,3 @@ export async function populateUserTable(user) {
     });
 }
 
-// Rest of your functions...

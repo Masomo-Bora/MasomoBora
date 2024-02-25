@@ -75,7 +75,7 @@ function checkLoggedInAndRedirect() {
               window.location.href = '../../modules/staff/index.html'; // Redirect to student dashboard
               break;
           case 'student':
-             window.location.href = '../../modules/staff/index.html'; // Redirect to student dashboard
+             window.location.href = '../../modules/students/index.html'; // Redirect to student dashboard
               break;    
           default:
               window.location.href = '../../modules/students/index.html'; // Redirect to a default dashboard
