@@ -49,12 +49,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'MasomoBora.urls'
@@ -142,10 +143,7 @@ AUTH_USER_MODEL = 'usermanagement.CustomUser'
 # settings.py
 
 # Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = ['http://localhost']
-CORS_ALLOW_HEADERS = ['*']  # Allow all headers during development
-
 
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # You can adjust the directory as needed
 

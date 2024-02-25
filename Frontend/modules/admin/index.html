@@ -114,9 +114,6 @@
         <!-- Page Content -->
         <main id="main-content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <!-- Content will be dynamically loaded here -->
-          <tbody id="studentTableBody">
-            <!-- User data will be dynamically inserted here -->
-        </tbody>
         </main>
       </div>
     </div>
@@ -142,37 +139,6 @@
       integrity="sha512-m4yAwVbwlVl0M8YA4PJz5sY4oDQHq3PhXUY3DmkFgNL/FzdNjFDtR0S27nce8ij9uPb0zWMGxxaBVQViKuvqJg=="
       crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <script>
-      // Function to load content from separate HTML file
-      function loadContent(pageName) {
-          $('#main-content').load(pageName + '.html', function (response, status, xhr) {
-              if (status === "error") {
-                  console.error("Error loading content:", xhr.status, xhr.statusText);
-              }
-          });
-      }
-  
-      // Event listener for sidebar navigation clicks
-      $('#sidebar').on('click', '.nav-link',async function (e) {
-          e.preventDefault();
-          var pageName = $(this).attr('href');
-          await loadContent(pageName);
-  
-          // Collapse the sidebar for small screens after clicking a link
-          if ($(window).width() < 768) {
-              $('#sidebar').toggleClass('active');
-          }
-      });
-  
-      // Toggle sidebar when the button is clicked
-      $('#sidebarToggle').on('click', function () {
-          $('#sidebar').toggleClass('active');
-      });
-  
-      // Initial load of default page (Dashboard)
-      $(document).ready( async function () {
-         await loadContent('dashboard');
-      });
-  </script>
+ 
   </body>
 </html>
