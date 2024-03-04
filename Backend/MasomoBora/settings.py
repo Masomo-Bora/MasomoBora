@@ -82,25 +82,25 @@ WSGI_APPLICATION = 'MasomoBora.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'MasomoBora',
-        'USER': 'root',
-        'PASSWORD': 'benjamin8393',
-        'HOST': 'localhost',  # Set to the address of your MySQL server
-        'PORT': '3306',       # Set to the port of your MySQL server
-    }
-}
-# # Database
-# # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'MasomoBora',
+#         'USER': 'root',
+#         'PASSWORD': 'benjamin8393',
+#         'HOST': 'localhost',  # Set to the address of your MySQL server
+#         'PORT': '3306',       # Set to the port of your MySQL server
 #     }
 # }
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -152,7 +152,7 @@ AUTH_USER_MODEL = 'usermanagement.CustomUser'
 # settings.py
 
 # Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
-CORS_ALLOWED_ORIGINS = ['http://localhost']
+CORS_ALLOWED_ORIGINS = ['http://localhost','http://127.0.0.1:5501']
 
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # You can adjust the directory as needed
 
