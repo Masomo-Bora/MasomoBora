@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '../../../config.js';
-
+import { manageUser } from '../manageUsers/index.js';
 export async function loadContent(pageName) {
     try {
         const response = await fetch(pageName + '.html');
@@ -14,14 +14,30 @@ export async function loadContent(pageName) {
         // For example, you can use getElementById here if needed
 
         // After loading content, you can execute other functions
-        refreshAccessToken();
+        await refreshAccessToken();
 
-        document.getElementById('manageStaff').addEventListener('click', function () {
-            populateUserTable('staffTableBody');
+        document.getElementById('manageStaff').addEventListener('click', async function () {
+            await populateUserTable('staffTableBody');
         });
 
-        document.getElementById('manageStudents').addEventListener('click', function () {
-            populateUserTable('studentTableBody');
+        document.getElementById('manageStudents').addEventListener('click', async function () {
+           await  populateUserTable('studentTableBody');
+        });
+        // Initial load of page
+        document.getElementById('redirect_button').addEventListener('click' ,'.btn', async function(){
+            alert("btn clicked")
+        });
+        $('#redirect_button').on('click','.btn-primary', async function (e) {
+            e.preventDefault();
+            alert("btn clicked")
+            var pageName = $(this).attr('href');
+            await loadContent(pageName);
+    
+    
+            // Collapse the sidebar for small screens after clicking a link
+            if ($(window).width() < 768) {
+                $('#sidebar').toggleClass('active');
+            }
         });
     } catch (error) {
         console.error(error);
@@ -133,7 +149,7 @@ export async function populateUserTable(user) {
         deleteButton.textContent = 'Delete';
         deleteButton.classList.add('btn', 'btn-danger','m-2');
         // Add an event listener to handle delete functionality
-        deleteButton.addEventListener('click', () => deleteUser(user.id));
+        deleteButton.addEventListener('click', () => manageUser(user.id,'delete'));
         actionCell.appendChild(deleteButton);
 
         row.appendChild(actionCell);

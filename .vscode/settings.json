@@ -14,5 +14,6 @@
             "database": "MasomoBora",
             "username": "root"
         }
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }

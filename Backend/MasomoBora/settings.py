@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-74lymx+7q54enn&**43nsk#(uha!bxe44^x5@*__b_n3(^v@yd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://127.0.0.1:800','http://localhost:800']
 
 
 # Application definition
@@ -47,9 +47,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -152,8 +152,8 @@ AUTH_USER_MODEL = 'usermanagement.CustomUser'
 # settings.py
 
 # Add the following if you want to allow credentials (cookies, Authorization headers, etc.)
-CORS_ALLOWED_ORIGINS = ['http://localhost','http://127.0.0.1:5501']
-
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:800','http://localhost:800']
+# CORS_ALLOW_ALL_ORIGINS = True
 LOGGING_DIR = os.path.join(BASE_DIR, 'logs')  # You can adjust the directory as needed
 
 LOGGING = {

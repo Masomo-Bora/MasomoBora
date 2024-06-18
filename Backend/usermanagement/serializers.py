@@ -1,15 +1,21 @@
-# userManagement/serializers.py
+
 from rest_framework import serializers
 from .models import CustomUser
 
 class CustomUserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)  # Add this line for the password field
+    password = serializers.CharField(write_only=True, required=False)  # Set required to False for the password field
 
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'user_type', 'email', 'password')  # Include 'password' in the fields
+        fields = ('id', 'username', 'user_type', 'email', 'password')
 
     def create(self, validated_data):
-        # Use create_user method from your CustomUser model to create a user with hashed password
         user = CustomUser.objects.create_user(**validated_data)
         return user
+
+    def update(self, instance, validated_data):
+        # Remove password from validated_data if it's not provided
+        if 'password' in validated_data:
+            password = validated_data.pop('password')
+            instance.set_password(password)
+        return super().update(instance, validated_data)
